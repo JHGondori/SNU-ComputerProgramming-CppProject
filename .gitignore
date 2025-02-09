@@ -1,0 +1,28 @@
+# 빌드 디렉토리 및 CMake 관련 파일
+/build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# 실행 파일 & 바이너리 파일
+*.out
+*.exe
+*.dll
+*.so
+*.dylib
+*.o
+*.obj
+*.a
+*.lib
+
+# 편집기 및 시스템 관련 파일
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 로그 및 캐시 파일
+*.log
+*.tmp

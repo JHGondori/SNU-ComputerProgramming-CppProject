@@ -1,5 +1,0 @@
-/Users/bjh/Documents/컴퓨터 프로그래밍/N-body simulator/build/CMakeFiles/NBodySimulator.dir
-/Users/bjh/Documents/컴퓨터 프로그래밍/N-body simulator/build/CMakeFiles/NumberClassTest.dir
-/Users/bjh/Documents/컴퓨터 프로그래밍/N-body simulator/build/CMakeFiles/test.dir
-/Users/bjh/Documents/컴퓨터 프로그래밍/N-body simulator/build/CMakeFiles/edit_cache.dir
-/Users/bjh/Documents/컴퓨터 프로그래밍/N-body simulator/build/CMakeFiles/rebuild_cache.dir

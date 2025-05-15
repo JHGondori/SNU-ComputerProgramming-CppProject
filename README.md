@@ -1,4 +1,6 @@
-# SNU Computer Programming Cpp Project
+# N-Body Simulation  
+*A C++ Project for SNU Computer Programming Course*
+
 This project is a numerical simulation of the **N-body problem**, which models the motion of celestial bodies under mutual gravitational attraction.
 
 ## Features

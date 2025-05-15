@@ -1,6 +1,6 @@
 #include "Body.hpp"
 
-Body::Body(float x, float y, float radius, float r, float g, float b){
+Body::Body(float x, float y, float radius, float r, float g, float b, const sf::Font &font) : stattext(font) {
     Body_X = x;
     Body_Y = y;
     Body_VX = 0; // 처음 만들어지는 body는 속도가 (0, 0)으로 설정
@@ -17,7 +17,7 @@ void Body::move(float newX, float newY, float newVX, float newVY){
     Body_VX = newVX;
     Body_VY = newVY;
 
-    vertices.push_back(sf::Vertex(sf::Vector2f(800.0f + 50.0f * newX, 400.0f - 50.0f * newY), color));
+    vertices.push_back(sf::Vertex({sf::Vector2f({800.0f + 50.0f * newX, 400.0f - 50.0f * newY}), color}));
 
     if(vertices.size() > trail_length) vertices.erase(vertices.begin());
 }
@@ -25,33 +25,31 @@ void Body::move(float newX, float newY, float newVX, float newVY){
 void Body::showvelocity(){
     velocity.clear();
     velocity = std::vector<sf::Vertex>();
-    velocity.push_back(sf::Vertex(sf::Vector2f(800.0f + 50.0f * Body_X, 400.0f - 50.0f * Body_Y), color));
-    velocity.push_back(sf::Vertex(sf::Vector2f(800.0f + 50.0f * (Body_X + Body_VX), 400.0f - 50.0f * (Body_Y + Body_VY)), sf::Color::White));
+    velocity.push_back(sf::Vertex({sf::Vector2f({800.0f + 50.0f * Body_X, 400.0f - 50.0f * Body_Y}), color}));
+    velocity.push_back(sf::Vertex({sf::Vector2f({800.0f + 50.0f * (Body_X + Body_VX), 400.0f - 50.0f * (Body_Y + Body_VY)}), sf::Color::White}));
 }
 
-void Body::showstat(sf::RenderWindow &window, sf::Font &font, int index){
+void Body::showstat(sf::RenderWindow &window, const sf::Font &font, int index){
     char STAT[100];  // 충분히 큰 버퍼 크기 설정
     snprintf(STAT, 100, "(%.6f, %.6f, %.6f, %.6f)", Body_X, Body_Y, Body_VX, Body_VY);
 
     statshape.setFillColor(color);
-    statshape.setPosition(1550, 55 + 40 * index);
+    statshape.setPosition({1550, 55 + 40 * (float)index});
     statshape.setRadius(Body_R);
-    statshape.setOrigin(Body_R, Body_R);
+    statshape.setOrigin({Body_R, Body_R});
 
-    stattext.setFont(font);
     stattext.setFillColor(sf::Color::White);
     stattext.setCharacterSize(14);
     stattext.setString(STAT);
 
     sf::FloatRect rc = stattext.getLocalBounds();
-    stattext.setOrigin(rc.width, rc.height / 2);
-    stattext.setPosition(1530, 55 + 40 * index);
+    stattext.setOrigin({rc.size.x, rc.size.y / 2});
+    stattext.setPosition({1530, 55 + 40 * (float)index});
 
-    sf::Text explain;
-    explain.setFont(font);
+    sf::Text explain(font);
     explain.setFillColor(sf::Color::White);
     explain.setString("State(X, Y, V_x, V_y)");
-    explain.setPosition(1250, 5);
+    explain.setPosition({1250, 5});
     explain.setCharacterSize(30);
 
     window.draw(explain);

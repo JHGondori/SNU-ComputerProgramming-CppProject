@@ -12,7 +12,7 @@ public:
     char number[100];
     float value;
     
-    Number(float x, float y, int size, int r, int g, int b, sf::Font &font);
+    Number(float x, float y, int size, int r, int g, int b, const sf::Font &font);
     bool correction();
     void addvalue(const char * n);
     void delvalue();

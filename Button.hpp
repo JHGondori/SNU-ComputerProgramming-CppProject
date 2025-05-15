@@ -20,7 +20,7 @@ public:
 
     bool activated;
     char name[100];
-    Button(float x, float y, float l_x, float l_y, const char *n, int r, int g, int b, sf::Font &font, bool activ);
+    Button(float x, float y, float l_x, float l_y, const char *n, int r, int g, int b, const sf::Font &font, bool activ);
     
     bool mouseon(sf::RenderWindow &window);
 

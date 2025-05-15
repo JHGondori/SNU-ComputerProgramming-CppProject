@@ -18,7 +18,7 @@ public:
     RK4(std::vector<float> m);
 
     sf::Vector2f EOM(std::vector<sf::Vector2f> R, std::vector<float> M, int index, int time); //Equation of Motion, returns acceleration of an body
-    std::vector<std::vector<std::vector<sf::Vector2f> > > Run(int body_N, float dt, int N, std::vector<sf::Vector2f> R_0, std::vector<sf::Vector2f> V_0, std::vector<float> M, sf::RenderWindow &window, sf::Font &font); //Use EOM and RK4, get X positions, Y positions, velocity_x, velocity_y, N is iterations
+    std::vector<std::vector<std::vector<sf::Vector2f> > > Run(int body_N, float dt, int N, std::vector<sf::Vector2f> R_0, std::vector<sf::Vector2f> V_0, std::vector<float> M, sf::RenderWindow &window, const sf::Font &font); //Use EOM and RK4, get X positions, Y positions, velocity_x, velocity_y, N is iterations
 
 private:
     float G = 1; // 중력상수

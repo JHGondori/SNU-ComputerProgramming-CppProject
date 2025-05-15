@@ -34,14 +34,13 @@ sf::Vector2f RK4::EOM(std::vector<sf::Vector2f> R, std::vector<float> M, int ind
     return dv_dt;
 }
 
-std::vector<std::vector<std::vector<sf::Vector2f> > > RK4::Run(int body_N, float dt, int N, std::vector<sf::Vector2f> R_0, std::vector<sf::Vector2f> V_0, std::vector<float> M, sf::RenderWindow &window, sf::Font &font){
-    sf::Text Wait; // 계산할 때 얼마나 진행되는지 시각적으로 표시하기 위한 text
+std::vector<std::vector<std::vector<sf::Vector2f> > > RK4::Run(int body_N, float dt, int N, std::vector<sf::Vector2f> R_0, std::vector<sf::Vector2f> V_0, std::vector<float> M, sf::RenderWindow &window, const sf::Font &font){
+    sf::Text Wait(font); // 계산할 때 얼마나 진행되는지 시각적으로 표시하기 위한 text
     Wait.setString("Calculating");
     Wait.setCharacterSize(50);
     Wait.setFillColor(sf::Color::White);
-    Wait.setPosition(0, 700);
-    Wait.setOrigin(0, 0);
-    Wait.setFont(font);
+    Wait.setPosition({0, 700});
+    Wait.setOrigin({0, 0});
 
     //본격적인 계산
     std::vector<std::vector<sf::Vector2f> > R(N, std::vector<sf::Vector2f>(body_N));

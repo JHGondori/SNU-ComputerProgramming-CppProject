@@ -1,7 +1,7 @@
 #include "Number.hpp"
 
-Number::Number(float x, float y, int size, int r, int g, int b, sf::Font &font) {
-    text.setFont(font);
+Number::Number(float x, float y, int size, int r, int g, int b, const sf::Font &font) 
+    : text(font) {
     text.setString("0");
     text.setCharacterSize(size);
 
@@ -10,9 +10,9 @@ Number::Number(float x, float y, int size, int r, int g, int b, sf::Font &font) 
     color.b = b;
 
     sf::FloatRect rc = text.getLocalBounds();
-    text.setOrigin(0, rc.height / 2);
+    text.setOrigin({0, rc.size.y / 2});
 
-    text.setPosition(x, y);
+    text.setPosition({x, y});
     text.setFillColor(color);
     text.setStyle(sf::Text::Regular);
 

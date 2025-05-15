@@ -25,7 +25,7 @@ public:
     std::vector<sf::Vertex> vertices; // body의 자취
     std::vector<sf::Vertex> velocity; // body의 속도
 
-    Body(float x, float y, float radius, float r, float g, float b);
+    Body(float x, float y, float radius, float r, float g, float b, const sf::Font &font);
     
     virtual ~Body() = default; // body를 소멸시킬 때 vector<Body>를 소멸시키는거라 default로 설정
 
@@ -33,7 +33,7 @@ public:
 
     void showvelocity(); // 자신의 속도를 velocity vector를 설정하는 함수
 
-    void showstat(sf::RenderWindow &window, sf::Font &font, int index);
+    void showstat(sf::RenderWindow &window, const sf::Font &font, int index);
 };
 
 #endif // BODY_HPP

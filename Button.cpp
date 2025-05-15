@@ -1,6 +1,6 @@
 #include "Button.hpp"
 
-Button::Button(float x, float y, float l_x, float l_y, const char *n, int r, int g, int b, sf::Font &font, bool activ){
+Button::Button(float x, float y, float l_x, float l_y, const char *n, int r, int g, int b, const sf::Font &font, bool activ) : text(font) {
     posx = x; posy = y; Lx = l_x; Ly = l_y;
 
     shape.setPosition(sf::Vector2f(x, y));
@@ -12,14 +12,13 @@ Button::Button(float x, float y, float l_x, float l_y, const char *n, int r, int
 
     shape.setFillColor(color);
 
-    text.setFont(font);
     text.setString(n);
     text.setCharacterSize(int(l_y - 12));
 
     sf::FloatRect rc = text.getLocalBounds();
-    text.setOrigin(rc.width/2, rc.height / 2);
+    text.setOrigin({rc.size.x / 2, rc.size.y / 2});
 
-    text.setPosition(x + l_x / 2, y + l_y / 3);
+    text.setPosition({x + l_x / 2, y + l_y / 3});
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Regular);
 
